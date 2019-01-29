@@ -11,7 +11,7 @@ class Header extends Component {
 
 
     render() {
-        const {name, error, loading, signIn, signOut, history, location, id_token} = this.props;
+        const {name, image, error, loading, signIn, signOut, history, location, id_token} = this.props;
 
         const addBtn = () => {
             history.push({
@@ -27,19 +27,23 @@ class Header extends Component {
         else if (error) return <p>{error}</p>;
         else
         return (
-            <div className="row">
+            <React.Fragment>
+            <div className="row border-bottom border-dark rounded-bottom">
                 <div className="col-md-3">
-                    <p className="font-weight-bold">Главная</p>
+                    <span className="font-weight-bold logo">Saint-Russian News</span>
                 </div>
-                <div className="col-md-3 offset-5">
+                <div className="col-md-6">
+                    <button className="btn btn-dark news_text sticky-top" onClick={addBtn} style={buttonStyle}>Добавить новость</button>
+                </div>
+                <div className="col-md-3">
                     {!!name && <p>{name}</p>}
-                    {!name && <button onClick={signIn}>Войти</button>}
-                    {!!name && <button onClick={signOut}>Выйти</button>}
-                </div>
-                <div className="col-md-3">
-                <button className="btn btn-primary" onClick={addBtn} style={buttonStyle}>Добавить новость</button>
+                    {!!image && <img className="rounded-circle img-fluid mx-1" src={image} alt={image}/>}
+                    {!name && <button className="btn btn-dark" onClick={signIn}>Войти</button>}
+                    {!!name && <button className="btn btn-dark" onClick={signOut}>Выйти</button>}
                 </div>
             </div>
+
+            </React.Fragment>
         )
     }
 }

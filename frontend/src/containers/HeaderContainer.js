@@ -9,6 +9,7 @@ class HeaderContainer extends Component {
         return(
             <Header
                 name = {this.props.name}
+                image = {this.props.image}
                 error = {this.props.error}
                 loading = {this.props.loading}
                 logIn = {this.props.signIn}
@@ -21,6 +22,7 @@ class HeaderContainer extends Component {
 const mapStateToProps = state => ({
     name : state.google.name,
     id_token : state.google.id_token,
+    image : state.google.image,
     error : state.google.error,
     loading : state.google.isFetching,
 });

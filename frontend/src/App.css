@@ -30,3 +30,13 @@
     transform: rotate(360deg);
   }
 }
+
+
+.logo {
+  font-family: 'Major Mono Display', monospace;
+  font-size : 35px;
+}
+
+.news_text {
+  font-family: 'Raleway', sans-serif;
+}

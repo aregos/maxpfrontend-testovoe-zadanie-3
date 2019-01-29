@@ -16,8 +16,7 @@ class Feed extends Component {
     };
 
     render() {
-        const {feed, loading} = this.props;
-        const {history, location} = this.props;
+        const {feed, loading, history, location, name} = this.props;
 
         const edit = () => {
             history.push({
@@ -25,22 +24,23 @@ class Feed extends Component {
                 feed : this.props.feed,
             });
         };
-
+//TODO:   disable buttons if logged user isn't a creator of feed...
         if (loading || !feed) return <p>Loading...</p>;
         else {
             let data = new Date(feed.createDate);
             data = data.toLocaleString();
+
             return (
                 <Grid>
                 <Row className="row mt-5 justify-content-start card border-dark">
                     <div className="card-body">
-                        <Col md={3} xs={6} className="text-lg-left card-title">
+                        <Col md={9} xs={12} className="text-lg-left card-title">
                             {feed.title}
                         </Col>
-                        <Col md={3} xs={6} className="text-lg-center font-italic font-weight-light card-text">
+                        <Col md={9} xs={12} className="text-lg-center font-italic font-weight-light card-text">
                             {feed.creator ? feed.creator.displayName : '-'}/{data}
                         </Col>
-                        <Col md={3} xs={6} className="text-lg-left card-text">
+                        <Col md={9} xs={12} className="text-lg-left card-text">
                             {feed.content}
                         </Col>
                     </div>

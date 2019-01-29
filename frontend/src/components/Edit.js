@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {withRouter} from "react-router-dom";
-import {Grid, Row, Col, ButtonToolbar, Button} from 'react-bootstrap'
+import {Grid, Row, Col, ButtonToolbar, Button, Form, FormControl} from 'react-bootstrap'
 import {updateFeed} from "../helpers/newsHelper";
 
 class Edit extends Component {
@@ -50,14 +50,14 @@ class Edit extends Component {
         else {
             return (
                 <Grid fluid={true}>
+                    <Form>
                     <Row>
-                        <Col xs={12} md={8}>
-                            <input className="form-control" type="text" onChange={this.changeTitle} value={this.state.title}/>
+                        <Col xs={12} md={9}>
+                            <FormControl type="text" className="form-control"  onChange={this.changeTitle} value={this.state.title}/>
                         </Col>
-                        <Col xs={12} md={8}>
-                            <textarea rows = "7" onChange={this.changeContent} defaultValue={this.state.content}/>
+                        <Col xs={12} md={9}>
+                            <FormControl componentClass="textarea" rows = "7" onChange={this.changeContent} defaultValue={this.state.content}/>
                         </Col>
-
                     </Row>
                     <ButtonToolbar>
                         <Col md={3} xs={6}>
@@ -67,6 +67,7 @@ class Edit extends Component {
                             <Button bsStyle="primary" bsSize="large" onClick={this.cancel}>Отменить</Button>
                         </Col>
                     </ButtonToolbar>
+                    </Form>
                 </Grid>
             )
         }

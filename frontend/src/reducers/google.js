@@ -3,6 +3,7 @@ import {SIGNIN_REQUEST,SIGNIN_SUCCESS,SIGNIN_FAILURE,SIGNOUT_REQUEST,SIGNOUT_SUC
 const initialState = {
     name : null,
     id_token : null,
+    image : null,
     error : null,
     isFetching : false,
 };
@@ -19,6 +20,7 @@ export default (state = initialState, action) => {
                 ...state,
                 name : action.payload.name,
                 id_token : action.payload.id_token,
+                image : action.payload.image,
                 isFetching : false,
             };
         case SIGNIN_FAILURE:
@@ -37,6 +39,7 @@ export default (state = initialState, action) => {
                 ...state,
                 name : action.payload,
                 id_token : action.payload,
+                image : action.payload,
                 isFetching : false,
             };
         case SIGNOUT_FAILURE:

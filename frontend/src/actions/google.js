@@ -12,7 +12,7 @@ export function logIn() {
     return dispatch => {
         dispatch({
             type: SIGNIN_REQUEST,
-        })
+        });
         signIn().then(res => {
             if (res){
                 dispatch({

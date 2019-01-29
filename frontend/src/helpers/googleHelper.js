@@ -18,6 +18,7 @@ export const signIn = async () => {
         return {
             name : googleUser.getBasicProfile().getName(),
             id_token : id_token,
+            image : googleUser.getBasicProfile().getImageUrl(),
         };
     };
     const _authErr = () => 'auth err';

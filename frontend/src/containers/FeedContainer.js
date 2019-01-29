@@ -6,9 +6,13 @@ import {watchFeed} from "../actions/getFeed";
 class FeedContainer extends Component {
 
     render(){
-        const {feed, loading, getFeed} = this.props;
+        const {feed, loading, getFeed, id_token} = this.props;
         return (
-            <Feed feed = {feed} loading = {loading} getFeed = {getFeed}/>
+            <Feed feed = {feed}
+                  loading = {loading}
+                  getFeed = {getFeed}
+                  id_token = {id_token}
+            />
         )
     }
 }
@@ -16,6 +20,8 @@ class FeedContainer extends Component {
 const mapStateToProps = state => ({
     feed : state.getFeed.currentFeed,
     loading : state.news.isFetching,
+    id_token : state.google.id_token,
+    name : state.google.name,
 });
 
 const mapDispatchToProps = dispatch => ({
