@@ -7,7 +7,6 @@ class App extends Component {
 
     render() {
     return (
-
             <div className="App">
             <HeaderContainer/>
             <NewsContainer/>
@@ -15,7 +14,6 @@ class App extends Component {
                 Aregos from <cite title="Source Title">Aregos Inc.</cite>
             </footer>
         </div>
-
     );
   }
 }

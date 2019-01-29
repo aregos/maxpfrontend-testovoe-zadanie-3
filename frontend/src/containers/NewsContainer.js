@@ -6,14 +6,11 @@ import {fetchNews} from '../actions/news'
 
 class NewsContainer extends Component {
 
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        if (this.props.news.length !== nextProps.news.length) return true;
-    }
 
     render(){
-        const {news, loading, getNews, id} = this.props;
+        const {news, loading, getNews} = this.props;
         return(
-            <News news = {news} loading = {loading} getNews = {getNews} id = {id}/>
+            <News news = {news} loading = {loading} getNews = {getNews}/>
         )
     }
 }
@@ -21,7 +18,6 @@ class NewsContainer extends Component {
 const mapStateToProps = state => ({
     news : state.news.news,
     loading : state.news.isFetching,
-    id : state.google.id_token,
 });
 
 const mapDispatchToProps = dispatch => ({

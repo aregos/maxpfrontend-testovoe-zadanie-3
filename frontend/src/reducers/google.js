@@ -36,6 +36,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 name : action.payload,
+                id_token : action.payload,
                 isFetching : false,
             };
         case SIGNOUT_FAILURE:

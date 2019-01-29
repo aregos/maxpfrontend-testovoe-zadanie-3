@@ -11,17 +11,20 @@ class Header extends Component {
 
 
     render() {
-        const {name, error, loading, signIn, signOut, history, location} = this.props;
-
+        const {name, error, loading, signIn, signOut, history, location, id_token} = this.props;
 
         const addBtn = () => {
             history.push({
                 pathname : location.pathname + '/addFeed/',
             })
-        }
+        };
 
-        if (loading) return <p>Loading...</p>
-        else if (error) return <p>{error}</p>
+        const buttonStyle = {
+            display : id_token ? '' : 'none',
+        };
+
+        if (loading) return <p>Loading...</p>;
+        else if (error) return <p>{error}</p>;
         else
         return (
             <div className="row">
@@ -34,7 +37,7 @@ class Header extends Component {
                     {!!name && <button onClick={signOut}>Выйти</button>}
                 </div>
                 <div className="col-md-3">
-                <button className="btn btn-primary" onClick={addBtn}>Добавить новость</button>
+                <button className="btn btn-primary" onClick={addBtn} style={buttonStyle}>Добавить новость</button>
                 </div>
             </div>
         )
