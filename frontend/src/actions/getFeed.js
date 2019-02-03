@@ -11,7 +11,6 @@ export function watchFeed(id){
         });
         await getFeed(id).then(res => {
             if (res){
-                console.log(res);
                 dispatch({
                     type : GET_FEED_SUCCESS,
                     payload : res.feed,

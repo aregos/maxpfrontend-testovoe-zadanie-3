@@ -5,7 +5,7 @@ import {deleteFeed} from "../helpers/newsHelper";
 class Article extends Component {
 
     render() {
-        const {item, index, history, location, id_token} = this.props;
+        const {item, index, history, location, name} = this.props;
         const id = item._id;
         let data = new Date(item.createDate);
         data = data.toLocaleString();
@@ -23,13 +23,22 @@ class Article extends Component {
                 feed : item,
             });
         };
-
+//TODO: remove feed from page after removing it by button without refreshing page by hand
         const removeFeed = () => {
-            deleteFeed(id).then(res => console.log(res));
+            deleteFeed(id).then(res => this.forceUpdate());
+        };
+
+        const editContent = (content) => {
+          if (content.length > 200){
+              content = content.split('').slice(0,200).join('');
+              content += '...';
+              return content;
+          }
+          else return content;
         };
 
         const buttonStyle = {
-            display : id_token ? '' : 'none',
+            display : item.creator.displayName === name ? '' : 'none',
         };
 
         return (
@@ -46,7 +55,7 @@ class Article extends Component {
                             <span> {item.creator.displayName}/{data} </span>
                         </div>
                         <div className="col-md-9 text-lg-left card-text">
-                            <span className="news_text"> {item.content} </span>
+                            <span className="news_text"> {editContent(item.content)} </span>
                         </div>
                     </div>
                 </div>

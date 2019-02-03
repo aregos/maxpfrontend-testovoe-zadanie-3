@@ -11,7 +11,7 @@ class ArticleContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-   id_token : state.google.id_token,
+    name : state.google.name,
 });
 
 export default connect(mapStateToProps)(Article);

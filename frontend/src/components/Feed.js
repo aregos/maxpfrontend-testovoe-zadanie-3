@@ -24,12 +24,14 @@ class Feed extends Component {
                 feed : this.props.feed,
             });
         };
-//TODO:   disable buttons if logged user isn't a creator of feed...
-        if (loading || !feed) return <p>Loading...</p>;
+        if (loading || !feed || !feed.creator) return <p>Loading...</p>;
         else {
             let data = new Date(feed.createDate);
             data = data.toLocaleString();
-
+            const {displayName} = feed.creator;
+            let buttonStyle = {
+              display : name === displayName ? '' : 'none',
+            };
             return (
                 <Grid>
                 <Row className="row mt-5 justify-content-start card border-dark">
@@ -46,10 +48,10 @@ class Feed extends Component {
                     </div>
                     <ButtonToolbar>
                         <Col md={3} xs={6}>
-                            <Button bsStyle="primary" bsSize="large" onClick={edit}>Редактировать</Button>
+                            <Button bsStyle="primary" style={buttonStyle} bsSize="large" onClick={edit}>Редактировать</Button>
                         </Col>
                         <Col md={3} xs={6}>
-                            <Button bsStyle="primary" bsSize="large" onClick={this.deleteFeed}>Удалить</Button>
+                            <Button bsStyle="primary" style={buttonStyle} bsSize="large" onClick={this.deleteFeed}>Удалить</Button>
                         </Col>
                     </ButtonToolbar>
                 </Row>
