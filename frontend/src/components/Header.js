@@ -8,8 +8,6 @@ class Header extends Component {
         load();
     }
 
-
-
     render() {
         const {name, image, error, loading, signIn, signOut, history, location, id_token} = this.props;
 

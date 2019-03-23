@@ -25,7 +25,7 @@ class Article extends Component {
         };
 //TODO: remove feed from page after removing it by button without refreshing page by hand
         const removeFeed = () => {
-            deleteFeed(id).then(res => this.forceUpdate());
+            deleteFeed(id).then(res => res);
         };
 
         const editContent = (content) => {

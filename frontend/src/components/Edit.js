@@ -56,7 +56,7 @@ class Edit extends Component {
                             <FormControl type="text" className="form-control"  onChange={this.changeTitle} value={this.state.title}/>
                         </Col>
                         <Col xs={12} md={9}>
-                            <FormControl componentClass="textarea" rows = "7" onChange={this.changeContent} defaultValue={this.state.content}/>
+                            <FormControl componentClass="textarea" rows="7" onChange={this.changeContent} defaultValue={this.state.content}/>
                         </Col>
                     </Row>
                     <ButtonToolbar>
